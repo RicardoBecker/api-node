@@ -1,15 +1,23 @@
 {
   "name": "node-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API para testes e estudos com NODE",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9",
+    "require-dir": "^1.2.0",
+    "require-directory": "^2.1.1"
+  },
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
