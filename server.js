@@ -1,25 +1,15 @@
-import express from "express";
-import mongoose from "mongoose";
-const requireDir = require('require-dir');
-//var requireDirectory = require('require-directory');
+const express = require("express");
+const cors = require("cors");
+const requireDir = require("require-dir");
 
 //inicinando o app
 const app = express();
+app.use(express.json());
+app.use(cors());
 
-mongoose.connect(
-    'mongodb://localhost:27017/nodeapi',
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }
-);
+requireDir("./src/db");
+requireDir("./src/models");
 
-//requireDirectory("./src/models")
-requireDir('./src/models/Product.js');
-
-
-app.get('/', (req, res) => {
-    res.send('teste de rota');
-});
+app.use("/api", require("./src/routes"));
 
 app.listen(3000);
